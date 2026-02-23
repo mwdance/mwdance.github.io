@@ -177,3 +177,20 @@ a:visited {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.services span {
+  background: #000;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
