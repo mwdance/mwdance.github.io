@@ -68,6 +68,55 @@
     .form-wrapper {
       max-width: 700px;
       margin: 0 auto;
+
+      .menu {
+  position: relative;
+  display: inline-block; /* keeps it centered since header text-align is center */
+  margin-top: 1rem;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  border-color: #fff;
+}
+
+.menu-dropdown {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 10px);
+
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  min-width: 180px;
+  padding: 10px 0;
+
+  display: none; /* hidden by default */
+  z-index: 999;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu-dropdown a:hover {
+  background: rgba(255,255,255,0.08);
+}
 }
   }
   </style>
@@ -113,6 +162,25 @@
     </iframe>
   </div>
 </section>
+<script>
+  const btn = document.getElementById("menuBtn");
+  const dropdown = document.getElementById("menuDropdown");
 
+  btn.addEventListener("click", () => {
+    const isOpen = dropdown.style.display === "block";
+    dropdown.style.display = isOpen ? "none" : "block";
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    dropdown.setAttribute("aria-hidden", String(isOpen));
+  });
+
+  // Close if user clicks outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".menu")) {
+      dropdown.style.display = "none";
+      btn.setAttribute("aria-expanded", "false");
+      dropdown.setAttribute("aria-hidden", "true");
+    }
+  });
+</script>
 </body>
 </html>
