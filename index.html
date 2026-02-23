@@ -91,21 +91,16 @@
       margin-top: 1.25rem;
     }
 
-    .menu-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-
+      .menu-btn {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.25);
       color: #fff;
 
-      padding: 10px 14px;
-      border-radius: 999px;
+      font-size: 24px;        /* makes hamburger bigger */
+      line-height: 1;
 
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.2px;
+      padding: 10px 16px;
+      border-radius: 999px;
 
       cursor: pointer;
       transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
@@ -118,28 +113,7 @@
     }
 
     /* icon (3 lines) */
-    .menu-icon {
-      width: 18px;
-      height: 12px;
-      position: relative;
-      display: inline-block;
-      margin-top: 2px;
-    }
-
-    .menu-icon::before,
-    .menu-icon::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-    }
-
-    .menu-icon::before { top: 0; }
-    .menu-icon::after { bottom: 0; }
-
+    
     .menu-icon {
       background: #fff;      /* middle line */
       height: 2px;
@@ -194,8 +168,7 @@
 
     <div class="menu">
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        <span class="menu-icon" aria-hidden="true"></span>
-        <span class="menu-label">Menu</span>
+        ☰
       </button>
 
       <div class="menu-dropdown" id="menuDropdown" aria-hidden="true">
