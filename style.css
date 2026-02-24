@@ -194,3 +194,85 @@ a:visited {
   font-weight: 500;
   letter-spacing: 0.3px;
 }
+
+/* ===== About band (home page) ===== */
+.about-band {
+  background: #eef1f3;          /* light gray like the screenshot */
+  padding: 4rem 1rem;
+}
+
+.about-band-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-copy {
+  text-align: left;
+}
+
+.about-copy h2 {
+  margin: 0 0 1rem;
+  font-size: 3.2rem;
+  letter-spacing: -0.8px;
+  line-height: 1;
+}
+
+.about-copy p {
+  margin: 0 0 1.25rem;
+  max-width: 520px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* CTA link */
+.about-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.about-cta:hover {
+  text-decoration: underline;
+}
+
+/* Photo */
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo {
+  width: min(420px, 100%);
+  aspect-ratio: 3 / 4;          /* keeps portrait shape consistent */
+  object-fit: cover;
+  border-radius: 18px;          /* rounded corners */
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+
+/* Softer service pills for this section */
+.services.soft span {
+  background: rgba(0,0,0,0.06);
+  color: #111;
+}
+
+/* Mobile stacking */
+@media (max-width: 900px) {
+  .about-band-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-copy h2 {
+    font-size: 2.4rem;
+  }
+  .about-photo {
+    width: min(380px, 100%);
+  }
+}
