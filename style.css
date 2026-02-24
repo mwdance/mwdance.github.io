@@ -329,3 +329,15 @@ a:visited {
     grid-template-columns: 1fr;
   }
 }
+
+.form-success {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #1a7f37;
+}
+
+.form-error {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #b42318;
+}
