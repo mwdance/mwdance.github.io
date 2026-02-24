@@ -30,12 +30,12 @@
       <p>For choreography inquiries, bookings, or collaborations, fill out the form below.</p>
 
       <div class="form-wrapper">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSe4fO126pV2Vbjc-ZXxs4Hgp59TldnIZiG3oXH17Fj4IHK-5w/viewform?embedded=true"
-          height="1200"
-          scrolling="no">
-          Loading…
-        </iframe>
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Inquiry details" required></textarea>
+          <button type="submit">Send</button>
+        </form>
       </div>
     </div>
   </section>
