@@ -30,12 +30,31 @@
       <p>For choreography inquiries, bookings, or collaborations, fill out the form below.</p>
 
       <div class="form-wrapper">
-        <form name="contact" method="POST" data-netlify="true">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" placeholder="Inquiry details" required></textarea>
-          <button type="submit">Send</button>
-        </form>
+<form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <!-- required for Netlify to identify the form -->
+  <input type="hidden" name="form-name" value="contact">
+
+  <!-- spam trap (hidden) -->
+  <p style="display:none;">
+    <label>Don’t fill this out: <input name="bot-field"></label>
+  </p>
+
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Inquiry details" required></textarea>
+
+  <button type="submit">Send</button>
+
+  <!-- inline confirmation message -->
+  <p class="form-success" id="formSuccess" style="display:none;">
+    Thank you! Your message has been received. I’ll get back to you soon.
+  </p>
+
+  <!-- inline error message -->
+  <p class="form-error" id="formError" style="display:none;">
+    Something went wrong — please try again, or email directly.
+  </p>
+</form>
       </div>
     </div>
   </section>
@@ -68,5 +87,41 @@
     });
   </script>
 
+  <script>
+  const form = document.querySelector(".contact-form");
+  const successMsg = document.getElementById("formSuccess");
+  const errorMsg = document.getElementById("formError");
+
+  function encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    successMsg.style.display = "none";
+    errorMsg.style.display = "none";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(Object.fromEntries(formData))
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMsg.style.display = "block";
+      } else {
+        errorMsg.style.display = "block";
+      }
+    } catch (err) {
+      errorMsg.style.display = "block";
+    }
+  });
+</script>
 </body>
 </html>
