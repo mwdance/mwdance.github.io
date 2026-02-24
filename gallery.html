@@ -45,7 +45,7 @@
 
   function closeMenu() {
     dropdown.classList.remove("open");
-    btn.classList.remove("open");                 // ✅ new
+    btn.classList.remove("open");
     btn.setAttribute("aria-expanded", "false");
     dropdown.setAttribute("aria-hidden", "true");
   }
@@ -57,26 +57,22 @@
     if (isOpen) closeMenu();
     else {
       dropdown.classList.add("open");
+      btn.classList.add("open");          // ✅ ADD THIS
       btn.setAttribute("aria-expanded", "true");
       dropdown.setAttribute("aria-hidden", "false");
     }
   });
 
-  // ✅ Smooth close before navigating
   dropdown.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();                   // stop instant navigation
-      closeMenu();                          // trigger close animation
+      e.preventDefault();
+      closeMenu();
       const href = link.getAttribute("href");
-
-      setTimeout(() => {
-        window.location.href = href;        // navigate after short delay
-      }, 150);                              // tweak 120–180ms if desired
+      setTimeout(() => { window.location.href = href; }, 150);
     });
   });
 
   document.addEventListener("click", () => closeMenu());
-
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
