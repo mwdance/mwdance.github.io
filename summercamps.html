@@ -41,13 +41,25 @@
     e.stopPropagation();
     const isOpen = dropdown.classList.contains("open");
 
-    if (isOpen) {
-      closeMenu();
-    } else {
+    if (isOpen) closeMenu();
+    else {
       dropdown.classList.add("open");
       btn.setAttribute("aria-expanded", "true");
       dropdown.setAttribute("aria-hidden", "false");
     }
+  });
+
+  // ✅ Smooth close before navigating
+  dropdown.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();                   // stop instant navigation
+      closeMenu();                          // trigger close animation
+      const href = link.getAttribute("href");
+
+      setTimeout(() => {
+        window.location.href = href;        // navigate after short delay
+      }, 150);                              // tweak 120–180ms if desired
+    });
   });
 
   document.addEventListener("click", () => closeMenu());
