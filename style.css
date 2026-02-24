@@ -301,14 +301,19 @@ a:visited {
   padding: 2rem;
   border-radius: 18px;
   text-align: left;
-
-  border: 1px solid #eee;
-  transition: border-color 200ms ease, background 200ms ease;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-.service-card:hover {
-  border-color: #ccc;
-  background: #fafafa;
+.service-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.service-card p {
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #444;
 }
 
 /* Mobile */
