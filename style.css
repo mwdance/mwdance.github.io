@@ -275,3 +275,55 @@ a:visited {
     width: min(380px, 100%);
   }
 }
+
+/* ===== Services Section ===== */
+
+.services-section {
+  padding: 5rem 1rem;
+}
+
+.services-section h2 {
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+}
+
+.services-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 18px;
+  text-align: left;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.service-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.service-card p {
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #444;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
