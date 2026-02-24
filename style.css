@@ -197,8 +197,9 @@ a:visited {
 
 /* ===== About band (home page) ===== */
 .about-band {
-  background: #ffffff;          /* light gray like the screenshot */
-  padding: 4rem 1rem;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .about-band-inner {
