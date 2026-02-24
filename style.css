@@ -197,7 +197,7 @@ a:visited {
 
 /* ===== About band (home page) ===== */
 .about-band {
-  background: linear-gradient(to bottom, #ffffff 0%, #f7f8f9 100%);
+  background: #f1f3f5;
 }
 
 .about-band-inner {
