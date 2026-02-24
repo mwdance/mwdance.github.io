@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melinda Wilkes | Summer Camps</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Summer Camps</h1>
+    <div class="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="menu-dropdown" id="menuDropdown" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="summercamps.html">Summer Camps</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+      <h2>Work in progress.</h2>
+  </section>
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const dropdown = document.getElementById("menuDropdown");
+
+    function closeMenu() {
+      dropdown.style.display = "none";
+      btn.setAttribute("aria-expanded", "false");
+      dropdown.setAttribute("aria-hidden", "true");
+    }
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.style.display === "block";
+      if (isOpen) {
+        closeMenu();
+      } else {
+        dropdown.style.display = "block";
+        btn.setAttribute("aria-expanded", "true");
+        dropdown.setAttribute("aria-hidden", "false");
+      }
+    });
+
+    document.addEventListener("click", () => closeMenu());
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
+
+</body>
+</html>
