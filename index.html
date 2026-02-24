@@ -95,33 +95,35 @@
     </div>
   </section>
 
-  <script>
-    const btn = document.getElementById("menuBtn");
-    const dropdown = document.getElementById("menuDropdown");
+<script>
+  const btn = document.getElementById("menuBtn");
+  const dropdown = document.getElementById("menuDropdown");
 
-    function closeMenu() {
-      dropdown.style.display = "none";
-      btn.setAttribute("aria-expanded", "false");
-      dropdown.setAttribute("aria-hidden", "true");
+  function closeMenu() {
+    dropdown.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+    dropdown.setAttribute("aria-hidden", "true");
+  }
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.contains("open");
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      dropdown.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
+      dropdown.setAttribute("aria-hidden", "false");
     }
+  });
 
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = dropdown.style.display === "block";
-      if (isOpen) {
-        closeMenu();
-      } else {
-        dropdown.style.display = "block";
-        btn.setAttribute("aria-expanded", "true");
-        dropdown.setAttribute("aria-hidden", "false");
-      }
-    });
+  document.addEventListener("click", () => closeMenu());
 
-    document.addEventListener("click", () => closeMenu());
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+</script>
 
 </body>
 </html>
