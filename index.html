@@ -18,9 +18,12 @@
 
     <div class="menu">
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        ☰
+        <span class="burger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
-
       <div class="menu-dropdown" id="menuDropdown" aria-hidden="true">
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
@@ -101,6 +104,7 @@
 
   function closeMenu() {
     dropdown.classList.remove("open");
+    btn.classList.remove("open");                 // ✅ new
     btn.setAttribute("aria-expanded", "false");
     dropdown.setAttribute("aria-hidden", "true");
   }
