@@ -197,9 +197,8 @@ a:visited {
 
 /* ===== About band (home page) ===== */
 .about-band {
-  padding-bottom: 6rem;
-  background: #ffffff;
-  padding: 5rem 1rem;
+  background: transparent;   /* or just remove this line entirely */
+  padding: 5rem 1rem 6rem;   /* top, sides, bottom */
 }
 
 .about-band-inner {
