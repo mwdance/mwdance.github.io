@@ -308,6 +308,12 @@ a:visited {
   object-fit: cover;
   border-radius: 24px;          /* rounded corners */
   box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+
+  display: block;
+  transform: translateZ(0);                 /* GPU layer = often sharper */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;      /* harmless */
+  image-rendering: -webkit-optimize-contrast;
 }
 
 /* Softer service pills for this section */
