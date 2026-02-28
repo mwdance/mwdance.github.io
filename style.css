@@ -303,7 +303,9 @@ a:visited {
 }
 
 .about-photo {
-  width: min(420px, 100%);
+  width: 420px;
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;          /* keeps portrait shape consistent */
   object-fit: cover;
   border-radius: 24px;          /* rounded corners */
