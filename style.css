@@ -790,3 +790,143 @@ a:visited {
     font-size: 2.1rem;
   }
 }
+
+.camps-page { text-align: left; }
+
+/* Hero row */
+.camp-hero {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 2rem;
+  padding: 1rem 0 2rem;
+}
+
+.camp-hero-panel {
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.camp-hero-panel h3 {
+  margin: 0 0 1rem;
+}
+
+.camp-facts {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.camp-fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.camp-fact:last-child { border-bottom: none; }
+
+.camp-fact-label {
+  color: #555;
+  font-weight: 600;
+}
+
+.camp-fact-value {
+  font-weight: 800;
+  color: #111;
+}
+
+/* Timeline */
+.camp-timeline {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.camp-step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.70);
+}
+
+.camp-step-num {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  background: #000;
+  color: #fff;
+}
+
+.camp-step-body h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.camp-step-body p {
+  margin: 0;
+  color: #444;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Included section */
+.camp-included {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.camp-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.camp-checklist li {
+  padding-left: 28px;
+  position: relative;
+  margin: 0.6rem 0;
+  font-weight: 600;
+  color: #222;
+}
+
+.camp-checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 900;
+}
+
+/* CTA bar */
+.camp-cta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .camp-hero {
+    grid-template-columns: 1fr;
+  }
+  .camp-cta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
