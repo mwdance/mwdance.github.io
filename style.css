@@ -707,3 +707,19 @@ a:visited {
     padding: 2rem;
   }
 }
+
+.form-nav {
+  margin-top: 1.75rem;
+}
+
+/* Back button stays left */
+.form-nav .back-btn {
+  display: inline-block;
+}
+
+/* Home button centered underneath */
+.form-nav .home-btn {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto 0;
+}
