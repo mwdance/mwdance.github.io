@@ -641,7 +641,27 @@ a:visited {
 }
 
 .sponsor-block {
-  background: rgba(0,0,0,0.05);
+  background: #111;                 /* deep charcoal */
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #f5f5f5;                   /* light text */
+}
+
+.sponsor-block h3 {
+  color: #ffffff;
+}
+
+.sponsor-block p {
+  color: #dddddd;
+}
+
+/* Make sponsor button slightly lighter for contrast */
+.sponsor-block .btn {
+  background: #ffffff;
+  color: #000;
+}
+
+.sponsor-block .btn:hover {
+  background: #f2f2f2;
 }
 
 .volunteer-block h3 {
