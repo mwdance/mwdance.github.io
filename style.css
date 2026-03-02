@@ -608,7 +608,12 @@ a:visited {
 }
 
 .volunteer-inner {
-  background: linear-gradient(145deg, #1a1a1a, #222);  /* softer charcoal */
+  background: linear-gradient(
+    to bottom,
+    #2a2a2a 0%,     /* lighter top */
+    #222 45%,
+    #1a1a1a 100%    /* darker bottom */
+  );
   border-radius: 22px;
   padding: 3rem;
   box-shadow: 0 25px 60px rgba(0,0,0,0.20);
@@ -682,8 +687,10 @@ a:visited {
 
 /* Buttons inside dark card */
 .volunteer-inner .btn {
-  background: #ffffff;
-  color: #000;
+  background: #f3f3f3;     /* slightly off-white */
+  color: #111;
+  font-weight: 700;
+  border: none;
 }
 
 .volunteer-inner .btn:hover {
