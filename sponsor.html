@@ -11,15 +11,15 @@
 <body>
 
   <header>
-    <h1>Gallery</h1>
+    <h1>Sponsor</h1>
+
     <div class="menu">
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
         <span class="burger" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </span>
       </button>
+
       <div class="menu-dropdown" id="menuDropdown" aria-hidden="true">
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
@@ -28,53 +28,66 @@
       </div>
     </div>
   </header>
-  <section>
-    <h1>Coming soon.</h1>
-  </section>
-  <section>
-    <div class="about-gallery">
-      
+
+  <main class="page-card">
+    <h2 style="margin-top:0;">Volunteer Interest Form</h2>
+    <p class="muted" style="margin-top:0.25rem;">
+      Fill this out if you are interested in being a sponsor! I will get back to you soon.
+    </p>
+
+    <div class="form-wrapper" style="margin-top:1.25rem;">
+      <iframe
+        src="PASTE_YOUR_VOLUNTEER_GOOGLE_FORM_EMBED_LINK_HERE"
+        height="1200"
+        scrolling="no"
+        style="border:0; width:100%;">
+        Loading…
+      </iframe>
     </div>
-  </section>
 
-<script>
-  const btn = document.getElementById("menuBtn");
-  const dropdown = document.getElementById("menuDropdown");
+    <div style="display:flex; gap:12px; margin-top:1.5rem; flex-wrap:wrap;">
+      <a class="btn" href="summercamps.html">← Back to Summer Camps</a>
+      <a class="btn" href="index.html">Home</a>
+    </div>
+  </main>
 
-  function closeMenu() {
-    dropdown.classList.remove("open");
-    btn.classList.remove("open");
-    btn.setAttribute("aria-expanded", "false");
-    dropdown.setAttribute("aria-hidden", "true");
-  }
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const dropdown = document.getElementById("menuDropdown");
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isOpen = dropdown.classList.contains("open");
-
-    if (isOpen) closeMenu();
-    else {
-      dropdown.classList.add("open");
-      btn.classList.add("open");          // ✅ ADD THIS
-      btn.setAttribute("aria-expanded", "true");
-      dropdown.setAttribute("aria-hidden", "false");
+    function closeMenu() {
+      dropdown.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      dropdown.setAttribute("aria-hidden", "true");
     }
-  });
 
-  dropdown.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      closeMenu();
-      const href = link.getAttribute("href");
-      setTimeout(() => { window.location.href = href; }, 150);
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains("open");
+      if (isOpen) closeMenu();
+      else {
+        dropdown.classList.add("open");
+        btn.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+        dropdown.setAttribute("aria-hidden", "false");
+      }
     });
-  });
 
-  document.addEventListener("click", () => closeMenu());
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
-</script>
+    dropdown.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        closeMenu();
+        const href = link.getAttribute("href");
+        setTimeout(() => { window.location.href = href; }, 150);
+      });
+    });
+
+    document.addEventListener("click", () => closeMenu());
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  </script>
 
 </body>
 </html>
