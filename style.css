@@ -759,13 +759,22 @@ a:visited {
 /* ===== Review Cards ===== */
 
 .reviews-grid {
-  max-width: none;
-  margin: 0;
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+}
+
+/* Center a single review */
+.review-card:only-child {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 485px;
+  justify-self: center;
+  box-sizing: border-box;
 }
 
 .review-card {
