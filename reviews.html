@@ -3,77 +3,454 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Melinda Wilkes | Reviews</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
     <h1>Reviews</h1>
+
     <div class="menu">
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
         <span class="burger" aria-hidden="true">
           <span></span>
           <span></span>
           <span></span>
         </span>
       </button>
-      <div class="menu-dropdown" id="menuDropdown" aria-hidden="true">
+
+      <div
+        class="menu-dropdown"
+        id="menuDropdown"
+        aria-hidden="true"
+      >
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
-        <a href="gallery.html">Reviews</a>
+        <a href="reviews.html">Reviews</a>
       </div>
     </div>
   </header>
-  <section>
-    <h1>Coming soon.</h1>
-  </section>
-  <section>
-    <div class="about-gallery">
-      
-    </div>
-  </section>
 
-<script>
-  const btn = document.getElementById("menuBtn");
-  const dropdown = document.getElementById("menuDropdown");
 
-  function closeMenu() {
-    dropdown.classList.remove("open");
-    btn.classList.remove("open");
-    btn.setAttribute("aria-expanded", "false");
-    dropdown.setAttribute("aria-hidden", "true");
-  }
+  <!-- REVIEWS INTRO -->
 
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isOpen = dropdown.classList.contains("open");
+  <main class="reviews-page">
 
-    if (isOpen) closeMenu();
-    else {
-      dropdown.classList.add("open");
-      btn.classList.add("open");          // ✅ ADD THIS
-      btn.setAttribute("aria-expanded", "true");
-      dropdown.setAttribute("aria-hidden", "false");
+    <section class="reviews-intro">
+      <h2>What They're Saying</h2>
+
+      <p>
+        Kind words from dancers, coaches, parents, and teams I've had the opportunity to work with.
+      </p>
+    </section>
+
+
+    <!-- APPROVED REVIEWS -->
+
+    <section class="reviews-grid">
+
+      <!-- Example review card -->
+      <article class="review-card">
+        <span class="quote-mark">“</span>
+
+        <p class="review-text">
+          Reviews from dancers, parents, coaches, and teams will appear here.
+        </p>
+
+        <div class="review-person">
+          <strong>Coming Soon</strong>
+          <span>Client Testimonial</span>
+        </div>
+      </article>
+
+      <!--
+      COPY THIS BLOCK WHEN ADDING NEW APPROVED REVIEWS:
+
+      <article class="review-card">
+        <span class="quote-mark">“</span>
+
+        <p class="review-text">
+          Review text goes here.
+        </p>
+
+        <div class="review-person">
+          <strong>Name</strong>
+          <span>Parent • Private Coaching</span>
+        </div>
+      </article>
+      -->
+
+    </section>
+
+
+    <!-- LEAVE A REVIEW -->
+
+    <section class="leave-review-section">
+
+      <div class="leave-review-card">
+
+        <h2>Share Your Experience</h2>
+
+        <p>
+          Worked with Mel? We'd love to hear about your experience.
+        </p>
+
+
+        <form
+          class="review-form"
+          name="review"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+
+          <!-- Required for Netlify -->
+          <input
+            type="hidden"
+            name="form-name"
+            value="review"
+          >
+
+
+          <!-- Spam trap -->
+          <p class="hidden-field">
+            <label>
+              Don't fill this out:
+              <input name="bot-field">
+            </label>
+          </p>
+
+
+          <!-- NAME -->
+
+          <label for="review-name">
+            Name
+          </label>
+
+          <input
+            id="review-name"
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
+          >
+
+
+          <!-- EMAIL -->
+
+          <label for="review-email">
+            Email
+          </label>
+
+          <input
+            id="review-email"
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+          >
+
+
+          <!-- RELATIONSHIP -->
+
+          <label for="relationship">
+            I worked with Mel as...
+          </label>
+
+          <select
+            id="relationship"
+            name="relationship"
+            required
+          >
+            <option value="">
+              Select one
+            </option>
+
+            <option value="Parent">
+              Parent
+            </option>
+
+            <option value="Dancer">
+              Dancer
+            </option>
+
+            <option value="Coach">
+              Coach
+            </option>
+
+            <option value="Team / Organization">
+              Team / Organization
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+          </select>
+
+
+          <!-- REVIEW -->
+
+          <label for="review-message">
+            Your Review
+          </label>
+
+          <textarea
+            id="review-message"
+            name="review"
+            rows="6"
+            placeholder="Tell us about your experience..."
+            required
+          ></textarea>
+
+
+          <!-- PERMISSION -->
+
+          <label class="review-permission">
+
+            <input
+              type="checkbox"
+              name="permission"
+              value="yes"
+              required
+            >
+
+            <span>
+              I give permission for this review to be displayed publicly on this website.
+            </span>
+
+          </label>
+
+
+          <!-- SUBMIT -->
+
+          <button
+            class="review-submit"
+            type="submit"
+          >
+            Submit Review
+          </button>
+
+
+          <!-- SUCCESS MESSAGE -->
+
+          <p
+            class="review-success"
+            id="reviewSuccess"
+          >
+            Thank you! Your review has been received and will be considered for publication.
+          </p>
+
+
+          <!-- ERROR MESSAGE -->
+
+          <p
+            class="review-error"
+            id="reviewError"
+          >
+            Something went wrong. Please try again.
+          </p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- MENU SCRIPT -->
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const dropdown = document.getElementById("menuDropdown");
+
+    function closeMenu() {
+      dropdown.classList.remove("open");
+      btn.classList.remove("open");
+
+      btn.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      dropdown.setAttribute(
+        "aria-hidden",
+        "true"
+      );
     }
-  });
 
-  dropdown.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      closeMenu();
-      const href = link.getAttribute("href");
-      setTimeout(() => { window.location.href = href; }, 150);
+
+    btn.addEventListener("click", (e) => {
+
+      e.stopPropagation();
+
+      const isOpen =
+        dropdown.classList.contains("open");
+
+
+      if (isOpen) {
+
+        closeMenu();
+
+      } else {
+
+        dropdown.classList.add("open");
+        btn.classList.add("open");
+
+        btn.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        dropdown.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+      }
+
     });
-  });
 
-  document.addEventListener("click", () => closeMenu());
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
-</script>
+
+    dropdown
+      .querySelectorAll("a")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          (e) => {
+
+            e.preventDefault();
+
+            closeMenu();
+
+            const href =
+              link.getAttribute("href");
+
+
+            setTimeout(() => {
+
+              window.location.href = href;
+
+            }, 150);
+
+          }
+        );
+
+      });
+
+
+    document.addEventListener(
+      "click",
+      () => closeMenu()
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (e) => {
+
+        if (e.key === "Escape") {
+          closeMenu();
+        }
+
+      }
+    );
+  </script>
+
+
+  <!-- REVIEW FORM SCRIPT -->
+
+  <script>
+    const reviewForm =
+      document.querySelector(".review-form");
+
+    const reviewSuccess =
+      document.getElementById("reviewSuccess");
+
+    const reviewError =
+      document.getElementById("reviewError");
+
+
+    function encodeFormData(formData) {
+      return new URLSearchParams(formData).toString();
+    }
+
+
+    reviewForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        reviewSuccess.style.display = "none";
+        reviewError.style.display = "none";
+
+
+        const formData =
+          new FormData(reviewForm);
+
+
+        try {
+
+          const response =
+            await fetch("/", {
+
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/x-www-form-urlencoded"
+              },
+
+              body:
+                encodeFormData(formData)
+
+            });
+
+
+          if (response.ok) {
+
+            reviewForm.reset();
+
+            reviewSuccess.style.display =
+              "block";
+
+          } else {
+
+            reviewError.style.display =
+              "block";
+
+          }
+
+
+        } catch (error) {
+
+          reviewError.style.display =
+            "block";
+
+        }
+
+      }
+    );
+  </script>
+
 
 </body>
 </html>
