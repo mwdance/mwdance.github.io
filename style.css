@@ -768,11 +768,11 @@ a:visited {
   gap: 2rem;
 }
 
-/* Center a single review */
-.review-card:only-child {
+/* If there is an odd number of reviews,
+   center the final review */
+.review-card:last-child:nth-child(odd) {
   grid-column: 1 / -1;
-  width: 100%;
-  max-width: 485px;
+  width: calc(50% - 1rem);
   justify-self: center;
   box-sizing: border-box;
 }
@@ -1019,8 +1019,13 @@ a:visited {
     margin-top: 3rem;
   }
 
-  .reviews-grid {
+    .reviews-grid {
     grid-template-columns: 1fr;
+  }
+
+  .review-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
   }
 
   .reviews-intro {
